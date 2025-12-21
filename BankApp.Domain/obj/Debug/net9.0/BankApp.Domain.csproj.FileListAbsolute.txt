@@ -1,0 +1,15 @@
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\bin\Debug\net9.0\BankApp.Domain.deps.json
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\bin\Debug\net9.0\BankApp.Domain.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\bin\Debug\net9.0\BankApp.Domain.pdb
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\bin\Debug\net9.0\BankApp.Core.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\bin\Debug\net9.0\BankApp.Core.pdb
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.csproj.AssemblyReference.cache
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.AssemblyInfo.cs
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp..B50F6DF5.Up2Date
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\refint\BankApp.Domain.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\BankApp.Domain.pdb
+C:\Users\Arzu\Desktop\BankApp\BankApp.Domain\obj\Debug\net9.0\ref\BankApp.Domain.dll
