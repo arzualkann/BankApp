@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\BankApp.Core",
-    "\\BankApp.Persistence"
+    ""
   ],
-  "SelectedNode": "\\BankApp.Persistence\\bin",
+  "SelectedNode": "\\BankApp.sln",
   "PreviewInSolutionExplorer": false
 }

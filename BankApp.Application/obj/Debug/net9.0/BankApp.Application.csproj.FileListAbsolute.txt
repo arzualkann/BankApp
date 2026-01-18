@@ -15,3 +15,4 @@ C:\Users\Arzu\Desktop\BankApp\BankApp.Application\obj\Debug\net9.0\BankApp.Appli
 C:\Users\Arzu\Desktop\BankApp\BankApp.Application\obj\Debug\net9.0\refint\BankApp.Application.dll
 C:\Users\Arzu\Desktop\BankApp\BankApp.Application\obj\Debug\net9.0\BankApp.Application.pdb
 C:\Users\Arzu\Desktop\BankApp\BankApp.Application\obj\Debug\net9.0\ref\BankApp.Application.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Application\obj\Debug\net9.0\BankApp.Application.sourcelink.json

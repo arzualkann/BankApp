@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Arzu\\Desktop\\BankApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\corporatecustomers\\rules\\corporatecustomerbusinessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\corporatecustomers\\rules\\corporatecustomerbusinessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\individualcustomers\\constants\\individualcustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\individualcustomers\\constants\\individualcustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\corporatecustomers\\constants\\corporatecustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\corporatecustomers\\constants\\corporatecustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IndividualCustomerMessages.cs",
+              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
+              "RelativeDocumentMoniker": "BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
+              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
+              "RelativeToolTip": "BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T15:01:32.639Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -18,6 +44,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CorporateCustomerMessages.cs",
+              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
+              "RelativeDocumentMoniker": "BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
+              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
+              "RelativeToolTip": "BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T15:00:51.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CorporateCustomerBusinessRules.cs",
+              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
+              "RelativeDocumentMoniker": "BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
+              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
+              "RelativeToolTip": "BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBcAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-18T14:59:45.375Z",
+              "EditorCaption": ""
             }
           ]
         }

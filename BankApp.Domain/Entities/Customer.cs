@@ -10,6 +10,6 @@ public abstract class Customer : Entity<Guid>
     public string City { get; set; } = default!;
     public string Country { get; set; } = default!;
     public string PostalCode { get; set; } = default!;
-    public bool IsActive { get; set; };
+    public bool IsActive { get; set; } = true;
 }
 

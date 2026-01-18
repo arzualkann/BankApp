@@ -15,3 +15,8 @@ C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\BankApp.Persi
 C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\refint\BankApp.Persistence.dll
 C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\BankApp.Persistence.pdb
 C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\ref\BankApp.Persistence.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\bin\Debug\net9.0\BankApp.Persistence.runtimeconfig.json
+C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\bin\Debug\net9.0\BankApp.Application.dll
+C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\bin\Debug\net9.0\BankApp.Application.pdb
+C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\BankApp.Persistence.sourcelink.json
+C:\Users\Arzu\Desktop\BankApp\BankApp.Persistence\obj\Debug\net9.0\BankApp.Persistence.genruntimeconfig.cache
