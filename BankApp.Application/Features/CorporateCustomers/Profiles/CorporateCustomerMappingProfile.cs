@@ -1,27 +1,28 @@
 using AutoMapper;
-using BankApp.Application.Features.CorporateCustomers.Commands.Create;
-using BankApp.Application.Features.CorporateCustomers.Commands.Update;
-using BankApp.Application.Features.CorporateCustomers.Queries.GetById;
-using BankApp.Application.Features.CorporateCustomers.Queries.GetList;
+using BankApp.Core.Repositories;
 using BankApp.Domain.Entities;
 
-namespace BankApp.Application.Features.CorporateCustomers.Profiles;
-
-public class CorporateCustomerMappingProfile : Profile
+namespace BankApp.Application.Features.CorporateCustomers.Profiles
 {
-    public CorporateCustomerMappingProfile()
+    public class MappingProfiles : Profile
     {
-        CreateMap<CreateCorporateCustomerCommand, CorporateCustomer>();
-        CreateMap<CorporateCustomer, CreateCorporateCustomerCommandResponse>();
+        public MappingProfiles()
+        {
+            // Entity -> Response mappings
+            CreateMap<CorporateCustomer, CorporateCustomerResponse>();
+            CreateMap<CorporateCustomer, CreatedCorporateCustomerResponse>();
+            CreateMap<CorporateCustomer, UpdatedCorporateCustomerResponse>();
+            
+            // Request -> Entity mappings
+            CreateMap<CreateCorporateCustomerRequest, CorporateCustomer>();
+            CreateMap<UpdateCorporateCustomerRequest, CorporateCustomer>();
 
-        CreateMap<UpdateCorporateCustomerCommand, CorporateCustomer>();
-        CreateMap<CorporateCustomer, UpdateCorporateCustomerCommandResponse>();
-
-        CreateMap<CorporateCustomer, GetByIdCorporateCustomerQueryResponse>();
-
-        CreateMap<CorporateCustomer, CorporateCustomerListItemDto>();
+            // Paginate mapping
+            CreateMap<Paginate<CorporateCustomer>, Paginate<CorporateCustomerResponse>>()
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));
+        }
     }
-}
+} 
 
 
 

@@ -1,23 +1,47 @@
+using AutoMapper;
+using BankApp.Application.Features.IndividualCustomers.Constants;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Requests;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
+using BankApp.Application.Features.IndividualCustomers.Rules;
+using BankApp.Application.Services.Repositories;
 using BankApp.Domain.Entities;
+using MediatR;
 
 namespace BankApp.Application.Features.IndividualCustomers.Commands.Create;
 
-public class CreateIndividualCustomerCommand
+public class CreateIndividualCustomerCommand : IRequest<CreatedIndividualCustomerResponse>
 {
-    public string IdentityNumber { get; set; } = default!;
-    public string FirstName { get; set; } = default!;
-    public string LastName { get; set; } = default!;
-    public DateTime BirthDate { get; set; }
-    public string? MiddleName { get; set; }
-    public string? Gender { get; set; }
-    public string? Occupation { get; set; }
-    public decimal? MonthlyIncome { get; set; }
-    public string PhoneNumber { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Address { get; set; } = default!;
-    public string City { get; set; } = default!;
-    public string Country { get; set; } = default!;
-    public string PostalCode { get; set; } = default!;
+    public CreateIndividualCustomerRequest Request { get; set; } = default!;
+
+    public class CreateIndividualCustomerCommandHandler : IRequestHandler<CreateIndividualCustomerCommand, CreatedIndividualCustomerResponse>
+    {
+        private readonly IIndividualCustomerRepository _individualCustomerRepository;
+        private readonly IMapper _mapper;
+        private readonly IndividualCustomerBusinessRules _businessRules;
+
+        public CreateIndividualCustomerCommandHandler(
+            IIndividualCustomerRepository individualCustomerRepository,
+            IMapper mapper,
+            IndividualCustomerBusinessRules businessRules)
+        {
+            _individualCustomerRepository = individualCustomerRepository;
+            _mapper = mapper;
+            _businessRules = businessRules;
+        }
+
+        public async Task<CreatedIndividualCustomerResponse> Handle(CreateIndividualCustomerCommand command, CancellationToken cancellationToken)
+        {
+            await _businessRules.NationalIdCannotBeDuplicatedWhenInserted(command.Request.NationalId);
+
+            var individualCustomer = _mapper.Map<IndividualCustomer>(command.Request);
+            var createdCustomer = await _individualCustomerRepository.AddAsync(individualCustomer);
+
+            var response = _mapper.Map<CreatedIndividualCustomerResponse>(createdCustomer);
+            response.Message = IndividualCustomerMessages.CustomerCreated;
+
+            return response;
+        }
+    }
 }
 
 

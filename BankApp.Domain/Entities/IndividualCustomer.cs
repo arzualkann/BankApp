@@ -1,14 +1,11 @@
-namespace BankApp.Domain.Entities;
+using System;
 
 public class IndividualCustomer : Customer
 {
-    public string IdentityNumber { get; set; } = default!;
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
-    public DateTime BirthDate { get; set; }
-    public string? MiddleName { get; set; }
-    public string? Gender { get; set; }
-    public string? Occupation { get; set; }
-    public decimal? MonthlyIncome { get; set; }
+    public string NationalId { get; set; } = default!; // TC Kimlik No
+    public DateTime DateOfBirth { get; set; }
+    public string? MotherName { get; set; }
+    public string? FatherName { get; set; }
 }
-

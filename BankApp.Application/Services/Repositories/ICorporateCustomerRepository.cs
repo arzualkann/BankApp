@@ -3,7 +3,7 @@ using BankApp.Domain.Entities;
 
 namespace BankApp.Application.Services.Repositories;
 
-public interface ICorporateCustomerRepository : IAsyncRepository<CorporateCustomer, Guid>
+public interface ICorporateCustomerRepository : ICustomerRepository<CorporateCustomer>
 {
 }
 

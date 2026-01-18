@@ -1,11 +1,46 @@
-namespace BankApp.Application.Features.IndividualCustomers.Commands.Delete;
+using BankApp.Application.Features.IndividualCustomers.Constants;
+using BankApp.Application.Features.IndividualCustomers.Rules;
+using BankApp.Application.Services.Repositories;
+using MediatR;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
-public class DeleteIndividualCustomerCommand
+namespace BankApp.Application.Features.IndividualCustomers.Commands.Delete
 {
-    public Guid Id { get; set; }
-    public bool Permanent { get; set; } = false;
+    public class DeleteIndividualCustomerCommand : IRequest<DeletedIndividualCustomerResponse>
+    {
+        public Guid Id { get; set; }
+
+        public class DeleteIndividualCustomerCommandHandler : IRequestHandler<DeleteIndividualCustomerCommand, DeletedIndividualCustomerResponse>
+        {
+            private readonly IIndividualCustomerRepository _individualCustomerRepository;
+            private readonly IndividualCustomerBusinessRules _businessRules;
+
+            public DeleteIndividualCustomerCommandHandler(
+                IIndividualCustomerRepository individualCustomerRepository,
+                IndividualCustomerBusinessRules businessRules)
+            {
+                _individualCustomerRepository = individualCustomerRepository;
+                _businessRules = businessRules;
+            }
+
+            public async Task<DeletedIndividualCustomerResponse> Handle(DeleteIndividualCustomerCommand command, CancellationToken cancellationToken)
+            {
+                await _businessRules.CustomerShouldExistWhenRequested(command.Id);
+
+                var individualCustomer = await _individualCustomerRepository.GetAsync(c => c.Id == command.Id);
+                individualCustomer.IsActive = false;
+                await _individualCustomerRepository.DeleteAsync(individualCustomer);
+
+                return new DeletedIndividualCustomerResponse
+                {
+                    Id = command.Id,
+                    Message = IndividualCustomerMessages.CustomerDeleted
+                };
+            }
+        }
+    }
 }
-
-
 
 

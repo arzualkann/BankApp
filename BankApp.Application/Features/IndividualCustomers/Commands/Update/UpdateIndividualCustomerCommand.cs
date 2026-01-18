@@ -1,24 +1,50 @@
-namespace BankApp.Application.Features.IndividualCustomers.Commands.Update;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+using AutoMapper;
+using BankApp.Application.Features.CorporateCustomers.Rules;
+using BankApp.Application.Services.Repositories;
+using BankApp.Application.Features.CorporateCustomers.Constants;
 
-public class UpdateIndividualCustomerCommand
+namespace BankingCreditSystem.Application.Features.CorporateCustomers.Commands.Update
 {
-    public Guid Id { get; set; }
-    public string IdentityNumber { get; set; } = default!;
-    public string FirstName { get; set; } = default!;
-    public string LastName { get; set; } = default!;
-    public DateTime BirthDate { get; set; }
-    public string? MiddleName { get; set; }
-    public string? Gender { get; set; }
-    public string? Occupation { get; set; }
-    public decimal? MonthlyIncome { get; set; }
-    public string PhoneNumber { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Address { get; set; } = default!;
-    public string City { get; set; } = default!;
-    public string Country { get; set; } = default!;
-    public string PostalCode { get; set; } = default!;
-    public bool IsActive { get; set; }
-}
+    public class UpdateCorporateCustomerCommand : IRequest<UpdatedCorporateCustomerResponse>
+    {
+        public UpdateCorporateCustomerRequest Request { get; set; } = default!;
+
+        public class UpdateCorporateCustomerCommandHandler : IRequestHandler<UpdateCorporateCustomerCommand, UpdatedCorporateCustomerResponse>
+        {
+            private readonly ICorporateCustomerRepository _corporateCustomerRepository;
+            private readonly IMapper _mapper;
+            private readonly CorporateCustomerBusinessRules _businessRules;
+
+            public UpdateCorporateCustomerCommandHandler(
+                ICorporateCustomerRepository corporateCustomerRepository,
+                IMapper mapper,
+                CorporateCustomerBusinessRules businessRules)
+            {
+                _corporateCustomerRepository = corporateCustomerRepository;
+                _mapper = mapper;
+                _businessRules = businessRules;
+            }
+
+            public async Task<UpdatedCorporateCustomerResponse> Handle(UpdateCorporateCustomerCommand command, CancellationToken cancellationToken)
+            {
+                await _businessRules.CustomerShouldExistWhenRequested(command.Request.Id);
+
+                var corporateCustomer = await _corporateCustomerRepository.GetAsync(c => c.Id == command.Request.Id);
+                _mapper.Map(command.Request, corporateCustomer);
+
+                var updatedCustomer = await _corporateCustomerRepository.UpdateAsync(corporateCustomer);
+                var response = _mapper.Map<UpdatedCorporateCustomerResponse>(updatedCustomer);
+                response.Message = CorporateCustomerMessages.CustomerUpdated;
+
+                return response;
+            }
+        }
+    }
+} 
 
 
 

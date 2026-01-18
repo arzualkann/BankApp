@@ -1,24 +1,50 @@
-namespace BankApp.Application.Features.CorporateCustomers.Commands.Create;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+using AutoMapper;
+using BankApp.Application.Features.CorporateCustomers.Rules;
+using BankApp.Application.Services.Repositories;
+using BankApp.Domain.Entities;
+using BankApp.Application.Features.CorporateCustomers.Constants;
 
-public class CreateCorporateCustomerCommand
+namespace BankApp.Application.Features.CorporateCustomers.Commands.Create
 {
-    public string TaxNumber { get; set; } = default!;
-    public string CompanyName { get; set; } = default!;
-    public string AuthorizedPersonName { get; set; } = default!;
-    public string AuthorizedPersonIdentityNumber { get; set; } = default!;
-    public string? TradeRegistryNumber { get; set; }
-    public DateTime? EstablishmentDate { get; set; }
-    public string? Sector { get; set; }
-    public decimal? AnnualRevenue { get; set; }
-    public int? EmployeeCount { get; set; }
-    public string PhoneNumber { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Address { get; set; } = default!;
-    public string City { get; set; } = default!;
-    public string Country { get; set; } = default!;
-    public string PostalCode { get; set; } = default!;
-}
+    public class CreateCorporateCustomerCommand : IRequest<CreatedCorporateCustomerResponse>
+    {
+        public CreateCorporateCustomerRequest Request { get; set; } = default!;
 
+        public class CreateCorporateCustomerCommandHandler : IRequestHandler<CreateCorporateCustomerCommand, CreatedCorporateCustomerResponse>
+        {
+            private readonly ICorporateCustomerRepository _corporateCustomerRepository;
+            private readonly IMapper _mapper;
+            private readonly CorporateCustomerBusinessRules _businessRules;
+
+            public CreateCorporateCustomerCommandHandler(
+                ICorporateCustomerRepository corporateCustomerRepository,
+                IMapper mapper,
+                CorporateCustomerBusinessRules businessRules)
+            {
+                _corporateCustomerRepository = corporateCustomerRepository;
+                _mapper = mapper;
+                _businessRules = businessRules;
+            }
+
+            public async Task<CreatedCorporateCustomerResponse> Handle(CreateCorporateCustomerCommand command, CancellationToken cancellationToken)
+            {
+                await _businessRules.TaxNumberCannotBeDuplicatedWhenInserted(command.Request.TaxNumber);
+
+                var corporateCustomer = _mapper.Map<CorporateCustomer>(command.Request);
+                var createdCustomer = await _corporateCustomerRepository.AddAsync(corporateCustomer);
+
+                var response = _mapper.Map<CreatedCorporateCustomerResponse>(createdCustomer);
+                response.Message = CorporateCustomerMessages.CustomerCreated;
+                
+                return response;
+            }
+        }
+    }
+} 
 
 
 

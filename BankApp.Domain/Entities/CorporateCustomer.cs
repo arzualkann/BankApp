@@ -1,15 +1,12 @@
-namespace BankApp.Domain.Entities;
+using BankApp.Domain.Entities;
+using System;
 
 public class CorporateCustomer : Customer
 {
-    public string TaxNumber { get; set; } = default!;
     public string CompanyName { get; set; } = default!;
+    public string TaxNumber { get; set; } = default!;
+    public string TaxOffice { get; set; } = default!;
+    public string CompanyRegistrationNumber { get; set; } = default!; // Ticaret Sicil No
     public string AuthorizedPersonName { get; set; } = default!;
-    public string AuthorizedPersonIdentityNumber { get; set; } = default!;
-    public string? TradeRegistryNumber { get; set; }
-    public DateTime? EstablishmentDate { get; set; }
-    public string? Sector { get; set; }
-    public decimal? AnnualRevenue { get; set; }
-    public int? EmployeeCount { get; set; }
+    public DateTime CompanyFoundationDate { get; set; }
 }
-

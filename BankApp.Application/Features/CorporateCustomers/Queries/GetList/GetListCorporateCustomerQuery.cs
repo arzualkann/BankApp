@@ -1,12 +1,40 @@
-namespace BankApp.Application.Features.CorporateCustomers.Queries.GetList;
+using MediatR;
+using AutoMapper;
+using BankApp.Core.Repositories;
+using BankApp.Application.Services.Repositories;
 
-public class GetListCorporateCustomerQuery
+
+namespace BankApp.Application.Features.CorporateCustomers.Queries.GetList
 {
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
-    public string? SearchTerm { get; set; }
+    public class GetListCorporateCustomerQuery : IRequest<Paginate<CorporateCustomerResponse>>
+    {
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
+
+        public class GetListCorporateCustomerQueryHandler : IRequestHandler<GetListCorporateCustomerQuery, Paginate<CorporateCustomerResponse>>
+        {
+            private readonly ICorporateCustomerRepository _corporateCustomerRepository;
+            private readonly IMapper _mapper;
+
+            public GetListCorporateCustomerQueryHandler(
+                ICorporateCustomerRepository corporateCustomerRepository,
+                IMapper mapper)
+            {
+                _corporateCustomerRepository = corporateCustomerRepository;
+                _mapper = mapper;
+            }
+
+            public async Task<Paginate<CorporateCustomerResponse>> Handle(GetListCorporateCustomerQuery request, CancellationToken cancellationToken)
+            {
+                var customers = await _corporateCustomerRepository.GetListAsync(
+                    index: request.PageIndex,
+                    size: request.PageSize,
+                    cancellationToken: cancellationToken
+                );
+
+                var response = _mapper.Map<Paginate<CorporateCustomerResponse>>(customers);
+                return response;
+            }
+        }
+    }
 }
-
-
-
-

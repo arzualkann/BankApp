@@ -1,27 +1,40 @@
 using AutoMapper;
 using BankApp.Application.Features.IndividualCustomers.Commands.Create;
-using BankApp.Application.Features.IndividualCustomers.Commands.Update;
-using BankApp.Application.Features.IndividualCustomers.Queries.GetById;
-using BankApp.Application.Features.IndividualCustomers.Queries.GetList;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Requests;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
+using BankApp.Core.Repositories;
 using BankApp.Domain.Entities;
 
-namespace BankApp.Application.Features.IndividualCustomers.Profiles;
-
-public class IndividualCustomerMappingProfile : Profile
+namespace BankApp.Application.Features.IndividualCustomers.Profiles
 {
-    public IndividualCustomerMappingProfile()
+    public class MappingProfiles : Profile
     {
-        CreateMap<CreateIndividualCustomerCommand, IndividualCustomer>();
-        CreateMap<IndividualCustomer, CreateIndividualCustomerCommandResponse>();
+        public MappingProfiles()
+        {
+            CreateMap<IndividualCustomer, IndividualCustomerResponse>();
+            CreateMap<IndividualCustomer, CreatedIndividualCustomerResponse>();
+            CreateMap<IndividualCustomer, UpdatedIndividualCustomerResponse>();
+            
+            CreateMap<CreateIndividualCustomerRequest, IndividualCustomer>();
+            CreateMap<UpdateIndividualCustomerRequest, IndividualCustomer>();
 
-        CreateMap<UpdateIndividualCustomerCommand, IndividualCustomer>();
-        CreateMap<IndividualCustomer, UpdateIndividualCustomerCommandResponse>();
+            CreateMap<CreateIndividualCustomerCommand, IndividualCustomer>()
+                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.Request.FirstName))
+                .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.Request.LastName))
+                .ForMember(dest => dest.NationalId, opt => opt.MapFrom(src => src.Request.NationalId))
+                .ForMember(dest => dest.DateOfBirth, opt => opt.MapFrom(src => src.Request.DateOfBirth))
+                .ForMember(dest => dest.MotherName, opt => opt.MapFrom(src => src.Request.MotherName))
+                .ForMember(dest => dest.FatherName, opt => opt.MapFrom(src => src.Request.FatherName))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Request.PhoneNumber))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Request.Email))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Request.Address));
 
-        CreateMap<IndividualCustomer, GetByIdIndividualCustomerQueryResponse>();
+            CreateMap<Paginate<IndividualCustomer>, Paginate<IndividualCustomerResponse>>()
+            .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));
 
-        CreateMap<IndividualCustomer, IndividualCustomerListItemDto>();
+        }
     }
-}
+} 
 
 
 

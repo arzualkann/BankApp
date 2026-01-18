@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Arzu\\Desktop\\BankApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\corporatecustomers\\rules\\corporatecustomerbusinessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\corporatecustomers\\rules\\corporatecustomerbusinessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\individualcustomers\\constants\\individualcustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\individualcustomers\\constants\\individualcustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.application\\features\\corporatecustomers\\constants\\corporatecustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B26B04-F1D0-4988-8B7B-C85E29E585AE}|BankApp.Application\\BankApp.Application.csproj|solutionrelative:bankapp.application\\features\\corporatecustomers\\constants\\corporatecustomermessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6C0980C8-3A84-4F1F-8A7F-CE36520711D2}|BankApp.WebApi\\BankApp.WebApi.csproj|c:\\users\\arzu\\desktop\\bankapp\\bankapp.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C0980C8-3A84-4F1F-8A7F-CE36520711D2}|BankApp.WebApi\\BankApp.WebApi.csproj|solutionrelative:bankapp.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IndividualCustomerMessages.cs",
-              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
-              "RelativeDocumentMoniker": "BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
-              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
-              "RelativeToolTip": "BankApp.Application\\Features\\IndividualCustomers\\Constants\\IndividualCustomerMessages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-18T15:01:32.639Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -47,28 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CorporateCustomerMessages.cs",
-              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
-              "RelativeDocumentMoniker": "BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
-              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
-              "RelativeToolTip": "BankApp.Application\\Features\\CorporateCustomers\\Constants\\CorporateCustomerMessages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-18T15:00:51.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CorporateCustomerBusinessRules.cs",
-              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
-              "RelativeDocumentMoniker": "BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
-              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
-              "RelativeToolTip": "BankApp.Application\\Features\\CorporateCustomers\\Rules\\CorporateCustomerBusinessRules.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBcAAABDAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "BankApp.WebApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Arzu\\Desktop\\BankApp\\BankApp.WebApi\\Program.cs",
+              "RelativeToolTip": "BankApp.WebApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-18T14:59:45.375Z",
+              "WhenOpened": "2026-01-18T21:48:01.828Z",
               "EditorCaption": ""
             }
           ]

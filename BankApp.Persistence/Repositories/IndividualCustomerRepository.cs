@@ -1,14 +1,13 @@
 using BankApp.Application.Services.Repositories;
-using BankApp.Core.Repositories;
-using BankApp.Domain.Entities;
-using BankApp.Persistence.Contexts;
+using BankApp.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-namespace BankApp.Persistence.Repositories;
-
-public class IndividualCustomerRepository : EfRepositoryBase<IndividualCustomer, Guid, BaseDbContext>, IIndividualCustomerRepository
+namespace BankApp.Persistence.Repositories
 {
-    public IndividualCustomerRepository(BaseDbContext context) : base(context)
+    public class IndividualCustomerRepository : CustomerRepository<IndividualCustomer>, IIndividualCustomerRepository
     {
+        public IndividualCustomerRepository(BaseDbContext context) : base(context)
+        {
+        }
     }
 }
-

@@ -1,11 +1,46 @@
-namespace BankApp.Application.Features.CorporateCustomers.Commands.Delete;
+using BankApp.Application.Features.CorporateCustomers.Constants;
+using BankApp.Application.Features.CorporateCustomers.Rules;
+using BankApp.Application.Services.Repositories;
+using MediatR;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
-public class DeleteCorporateCustomerCommand
+
+namespace BankApp.Application.Features.CorporateCustomers.Commands.Delete
 {
-    public Guid Id { get; set; }
-    public bool Permanent { get; set; } = false;
+    public class DeleteCorporateCustomerCommand : IRequest<DeletedCorporateCustomerResponse>
+    {
+        public Guid Id { get; set; }
+
+        public class DeleteCorporateCustomerCommandHandler : IRequestHandler<DeleteCorporateCustomerCommand, DeletedCorporateCustomerResponse>
+        {
+            private readonly ICorporateCustomerRepository _corporateCustomerRepository;
+            private readonly CorporateCustomerBusinessRules _businessRules;
+
+            public DeleteCorporateCustomerCommandHandler(
+                ICorporateCustomerRepository corporateCustomerRepository,
+                CorporateCustomerBusinessRules businessRules)
+            {
+                _corporateCustomerRepository = corporateCustomerRepository;
+                _businessRules = businessRules;
+            }
+
+            public async Task<DeletedCorporateCustomerResponse> Handle(DeleteCorporateCustomerCommand command, CancellationToken cancellationToken)
+            {
+                await _businessRules.CustomerShouldExistWhenRequested(command.Id);
+
+                var corporateCustomer = await _corporateCustomerRepository.GetAsync(c => c.Id == command.Id);
+                await _corporateCustomerRepository.DeleteAsync(corporateCustomer);
+
+                return new DeletedCorporateCustomerResponse
+                {
+                    Id = command.Id,
+                    Message = CorporateCustomerMessages.CustomerDeleted
+                };
+            }
+        }
+    }
 }
-
-
 
 
