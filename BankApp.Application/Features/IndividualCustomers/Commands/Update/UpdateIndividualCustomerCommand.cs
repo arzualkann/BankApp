@@ -3,45 +3,46 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using AutoMapper;
-using BankApp.Application.Features.CorporateCustomers.Rules;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Requests;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
+using BankApp.Application.Features.IndividualCustomers.Rules;
 using BankApp.Application.Services.Repositories;
-using BankApp.Application.Features.CorporateCustomers.Constants;
+using BankApp.Application.Features.IndividualCustomers.Constants;
 
-namespace BankingCreditSystem.Application.Features.CorporateCustomers.Commands.Update
+namespace BankApp.Application.Features.IndividualCustomers.Commands.Update;
+
+public class UpdateIndividualCustomerCommand : IRequest<UpdatedIndividualCustomerResponse>
 {
-    public class UpdateCorporateCustomerCommand : IRequest<UpdatedCorporateCustomerResponse>
+    public UpdateIndividualCustomerRequest Request { get; set; } = default!;
+
+    public class UpdateIndividualCustomerCommandHandler : IRequestHandler<UpdateIndividualCustomerCommand, UpdatedIndividualCustomerResponse>
     {
-        public UpdateCorporateCustomerRequest Request { get; set; } = default!;
+        private readonly IIndividualCustomerRepository _individualCustomerRepository;
+        private readonly IMapper _mapper;
+        private readonly IndividualCustomerBusinessRules _businessRules;
 
-        public class UpdateCorporateCustomerCommandHandler : IRequestHandler<UpdateCorporateCustomerCommand, UpdatedCorporateCustomerResponse>
+        public UpdateIndividualCustomerCommandHandler(
+            IIndividualCustomerRepository individualCustomerRepository,
+            IMapper mapper,
+            IndividualCustomerBusinessRules businessRules)
         {
-            private readonly ICorporateCustomerRepository _corporateCustomerRepository;
-            private readonly IMapper _mapper;
-            private readonly CorporateCustomerBusinessRules _businessRules;
+            _individualCustomerRepository = individualCustomerRepository;
+            _mapper = mapper;
+            _businessRules = businessRules;
+        }
 
-            public UpdateCorporateCustomerCommandHandler(
-                ICorporateCustomerRepository corporateCustomerRepository,
-                IMapper mapper,
-                CorporateCustomerBusinessRules businessRules)
-            {
-                _corporateCustomerRepository = corporateCustomerRepository;
-                _mapper = mapper;
-                _businessRules = businessRules;
-            }
+        public async Task<UpdatedIndividualCustomerResponse> Handle(UpdateIndividualCustomerCommand command, CancellationToken cancellationToken)
+        {
+            await _businessRules.CustomerShouldExistWhenRequested(command.Request.Id);
 
-            public async Task<UpdatedCorporateCustomerResponse> Handle(UpdateCorporateCustomerCommand command, CancellationToken cancellationToken)
-            {
-                await _businessRules.CustomerShouldExistWhenRequested(command.Request.Id);
+            var individualCustomer = await _individualCustomerRepository.GetAsync(c => c.Id == command.Request.Id);
+            _mapper.Map(command.Request, individualCustomer);
 
-                var corporateCustomer = await _corporateCustomerRepository.GetAsync(c => c.Id == command.Request.Id);
-                _mapper.Map(command.Request, corporateCustomer);
+            var updatedCustomer = await _individualCustomerRepository.UpdateAsync(individualCustomer);
+            var response = _mapper.Map<UpdatedIndividualCustomerResponse>(updatedCustomer);
+            response.Message = IndividualCustomerMessages.CustomerUpdated;
 
-                var updatedCustomer = await _corporateCustomerRepository.UpdateAsync(corporateCustomer);
-                var response = _mapper.Map<UpdatedCorporateCustomerResponse>(updatedCustomer);
-                response.Message = CorporateCustomerMessages.CustomerUpdated;
-
-                return response;
-            }
+            return response;
         }
     }
 } 

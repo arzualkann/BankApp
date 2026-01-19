@@ -1,3 +1,4 @@
+namespace BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
 
 public class IndividualCustomerResponse
 {

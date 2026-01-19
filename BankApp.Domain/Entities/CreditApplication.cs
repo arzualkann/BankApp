@@ -1,7 +1,5 @@
 ﻿using BankApp.Core.Repositories;
-using BankApp.Domain.Entities;
-using BankApp.Domain.Entities;
-using System;
+using BankApp.Domain.Enums;
 
 namespace BankApp.Domain.Entities
 {

@@ -2,6 +2,8 @@ using BankApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
+namespace BankApp.Persistence.Contexts;
+
 public class BaseDbContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }

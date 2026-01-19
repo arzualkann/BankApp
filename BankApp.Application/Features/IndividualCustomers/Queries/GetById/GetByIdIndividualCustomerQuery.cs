@@ -5,6 +5,7 @@ using MediatR;
 using AutoMapper;
 using BankApp.Application.Services.Repositories;
 using BankApp.Application.Features.IndividualCustomers.Rules;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
 
 namespace BankApp.Application.Features.IndividualCustomers.Queries.GetById
 {

@@ -1,9 +1,11 @@
 ﻿using BankApp.Application.Services.Repositories;
 using BankApp.Persistence.Repositories;
-using BankingCreditSystem.Application.Services.Repositories;
+using BankApp.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+namespace BankApp.Persistence;
 
 public static class PersistenceServiceRegistration
 {

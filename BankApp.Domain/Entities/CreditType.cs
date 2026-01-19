@@ -1,5 +1,6 @@
 ﻿using BankApp.Core.Repositories;
 using BankApp.Domain.Entities;
+using BankApp.Domain.Enums;
 using System;
 using System.Collections.Generic;
 

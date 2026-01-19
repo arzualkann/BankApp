@@ -6,6 +6,7 @@ using MediatR;
 using AutoMapper;
 using BankApp.Core.Repositories;
 using BankApp.Application.Services.Repositories;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
 
 namespace BankApp.Application.Features.IndividualCustomers.Queries.GetList
 {

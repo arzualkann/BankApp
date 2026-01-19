@@ -1,10 +1,8 @@
 using BankApp.Application.Features.IndividualCustomers.Constants;
+using BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
 using BankApp.Application.Features.IndividualCustomers.Rules;
 using BankApp.Application.Services.Repositories;
 using MediatR;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace BankApp.Application.Features.IndividualCustomers.Commands.Delete
 {

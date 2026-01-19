@@ -1,12 +1,9 @@
 ﻿using BankApp.Core.Repositories;
 using BankApp.Application.Services.Repositories;
 using BankApp.Domain.Entities;
+using BankApp.Domain.Enums;
+using BankApp.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BankingCreditSystem.Application.Services.Repositories;
 
 namespace BankApp.Persistence.Repositories
 {

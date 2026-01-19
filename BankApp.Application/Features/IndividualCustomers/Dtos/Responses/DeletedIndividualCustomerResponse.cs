@@ -1,3 +1,5 @@
+namespace BankApp.Application.Features.IndividualCustomers.Dtos.Responses;
+
 public class DeletedIndividualCustomerResponse
 {
     public Guid Id { get; set; }
